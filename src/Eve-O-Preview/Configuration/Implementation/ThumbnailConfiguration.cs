@@ -114,9 +114,9 @@ namespace EveOPreview.Configuration.Implementation
 			this.ThumbnailZoomEnabled = false;
 			this.ThumbnailZoomFactor = 2;
 			this.ThumbnailZoomAnchor = ZoomAnchor.NW;
-            this.OverlayLabelAnchor = ZoomAnchor.NW;
+			this.OverlayLabelAnchor = ZoomAnchor.NW;
 
-            this.ShowThumbnailOverlays = true;
+			this.ShowThumbnailOverlays = true;
 			this.ShowThumbnailFrames = false;
 			this.LockThumbnailLocation = false;
 
@@ -124,7 +124,7 @@ namespace EveOPreview.Configuration.Implementation
 			this.ThumbnailSnapToGridSizeX = 100;
 			this.ThumbnailSnapToGridSizeY = 50;
 
-            this.EnableActiveClientHighlight = false;
+			this.EnableActiveClientHighlight = false;
 			this.ActiveClientHighlightColor = Color.GreenYellow;
 			this.ActiveClientHighlightThickness = 3;
 
@@ -192,7 +192,7 @@ namespace EveOPreview.Configuration.Implementation
 		public Dictionary<string, Size> PerClientThumbnailSize { get; set; }
 
 		[JsonProperty("PerClientZoomAnchor")]
-		public Dictionary<string, ZoomAnchor> PerClientZoomAnchor{ get; set; }
+		public Dictionary<string, ZoomAnchor> PerClientZoomAnchor { get; set; }
 		public bool MinimizeToTray { get; set; }
 		public int ThumbnailRefreshPeriod { get; set; }
 		public int ThumbnailResizeTimeoutPeriod { get; set; }
@@ -256,14 +256,14 @@ namespace EveOPreview.Configuration.Implementation
 		public bool ShowThumbnailFrames { get; set; }
 		public bool LockThumbnailLocation { get; set; }
 		public bool ThumbnailSnapToGrid { get; set; }
-		public int ThumbnailSnapToGridSizeX {  get; set; }
+		public int ThumbnailSnapToGridSizeX { get; set; }
 		public int ThumbnailSnapToGridSizeY { get; set; }
 
 		public bool EnableActiveClientHighlight { get; set; }
 
 		public Color ActiveClientHighlightColor { get; set; }
 		public Color OverlayLabelColor { get; set; }
-		public int OverlayLabelSize {  get; set; }
+		public int OverlayLabelSize { get; set; }
 		public string IconName { get; set; }
 
 		public int ActiveClientHighlightThickness { get; set; }
@@ -418,6 +418,12 @@ namespace EveOPreview.Configuration.Implementation
 			this.ThumbnailOpacity = ThumbnailConfiguration.ApplyRestrictions((int)(this.ThumbnailOpacity * 100.00), 20, 100) / 100.00;
 			this.ThumbnailZoomFactor = ThumbnailConfiguration.ApplyRestrictions(this.ThumbnailZoomFactor, 2, 10);
 			this.ActiveClientHighlightThickness = ThumbnailConfiguration.ApplyRestrictions(this.ActiveClientHighlightThickness, 1, 6);
+		}
+
+		public IList<string> GetAllKnownClients()
+		{
+			// Prefer FlatLayout keys as the source of known clients
+			return this.FlatLayout?.Keys?.ToList() ?? new List<string>();
 		}
 
 		private static int ApplyRestrictions(int value, int minimum, int maximum)

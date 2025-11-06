@@ -56,12 +56,12 @@ namespace EveOPreview.Configuration
 		bool ThumbnailZoomEnabled { get; set; }
 		int ThumbnailZoomFactor { get; set; }
 		ZoomAnchor ThumbnailZoomAnchor { get; set; }
-		ZoomAnchor OverlayLabelAnchor {  get; set; }
+		ZoomAnchor OverlayLabelAnchor { get; set; }
 
 		bool ShowThumbnailOverlays { get; set; }
 		bool ShowThumbnailFrames { get; set; }
 		bool LockThumbnailLocation { get; set; }
-		bool ThumbnailSnapToGrid {  get; set; }
+		bool ThumbnailSnapToGrid { get; set; }
 		int ThumbnailSnapToGridSizeX { get; set; }
 		int ThumbnailSnapToGridSizeY { get; set; }
 
@@ -94,5 +94,10 @@ namespace EveOPreview.Configuration
 		void ToggleThumbnail(string currentClient, bool isDisabled);
 
 		void ApplyRestrictions();
+
+		/// <summary>
+		/// Returns a list of known client titles to populate UI. Typically sourced from FlatLayout keys.
+		/// </summary>
+		IList<string> GetAllKnownClients();
 	}
 }

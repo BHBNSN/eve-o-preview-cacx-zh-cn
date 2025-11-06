@@ -17,8 +17,8 @@ namespace EveOPreview.View
 		bool EnableClientLayoutTracking { get; set; }
 		bool HideActiveClientThumbnail { get; set; }
 		bool MinimizeInactiveClients { get; set; }
-        ViewAnimationStyle WindowsAnimationStyle { get; set; }
-        bool ShowThumbnailsAlwaysOnTop { get; set; }
+		ViewAnimationStyle WindowsAnimationStyle { get; set; }
+		bool ShowThumbnailsAlwaysOnTop { get; set; }
 		bool HideThumbnailsOnLostFocus { get; set; }
 		bool EnablePerClientThumbnailLayouts { get; set; }
 
@@ -44,6 +44,25 @@ namespace EveOPreview.View
 
 		string IconName { get; set; }
 
+		// Hotkeys UI support
+		int SelectedCycleGroup { get; set; } // 1..5
+		string CycleGroupForwardHotkeysText { get; set; }
+		string CycleGroupBackwardHotkeysText { get; set; }
+
+		/// <summary>
+		/// Set full list of available client titles to show in the clients editor.
+		/// </summary>
+		void SetAvailableClients(IList<string> clients);
+
+		/// <summary>
+		/// Get selected clients (in order) for current SelectedCycleGroup from the UI.
+		/// </summary>
+		IList<string> GetSelectedClientsForCurrentGroup();
+
+		/// <summary>
+		/// Set selected clients (in order) for current SelectedCycleGroup in the UI.
+		/// </summary>
+		void SetSelectedClientsForCurrentGroup(IList<string> orderedClients);
 		void SetDocumentationUrl(string url);
 		void SetVersionInfo(string version);
 		void SetThumbnailSizeLimitations(Size minimumSize, Size maximumSize);
@@ -62,5 +81,17 @@ namespace EveOPreview.View
 		Action ThumbnailsSizeChanged { get; set; }
 		Action<string> ThumbnailStateChanged { get; set; }
 		Action DocumentationLinkActivated { get; set; }
+
+		/// <summary>
+		/// Raised when the user changes the selected cycle group in the Hotkeys tab.
+		/// Presenter should save current group's UI to config and load the new group's settings into the view.
+		/// </summary>
+		Action SelectedCycleGroupChanged { get; set; }
+
+		/// <summary>
+		/// Suppress UI events while presenter is populating controls.
+		/// </summary>
+		void BeginUpdateUI();
+		void EndUpdateUI();
 	}
 }

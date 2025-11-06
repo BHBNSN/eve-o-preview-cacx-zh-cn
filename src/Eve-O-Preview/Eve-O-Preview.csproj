@@ -18,7 +18,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>8.0.1.9</ApplicationVersion>
+    <ApplicationVersion>8.0.2.1</ApplicationVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -66,8 +66,8 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <UseWPF>True</UseWPF>
-    <AssemblyVersion>8.0.1.9</AssemblyVersion>
-    <FileVersion>8.0.1.9</FileVersion>
+    <AssemblyVersion>8.0.2.1</AssemblyVersion>
+    <FileVersion>8.0.2.1</FileVersion>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Build|AnyCPU'">
