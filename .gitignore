@@ -9,3 +9,6 @@ src/*/.vs/
 *.DotSettings
 build/Fody*
 *.vs/
+/EVE-O-preview-CACX_zhcn
+/EVE-O-preview-CACX_zhcn.zip
+/src/Eve-O-Preview/Properties/PublishProfiles/FolderProfile.pubxml
