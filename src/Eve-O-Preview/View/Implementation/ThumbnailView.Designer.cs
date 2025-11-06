@@ -33,7 +33,7 @@ namespace EveOPreview.View
 			this.Opacity = 0.1D;
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
-			this.Text = "Preview";
+			this.Text = "预览";
 			this.TopMost = true;
 			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown_Handler);
 			this.MouseEnter += new System.EventHandler(this.MouseEnter_Handler);

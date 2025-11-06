@@ -1,4 +1,4 @@
-﻿namespace PreviewToy
+namespace PreviewToy
 {
     partial class AboutBox
     {
@@ -85,7 +85,7 @@
             this.labelProductName.Name = "labelProductName";
             this.labelProductName.Size = new System.Drawing.Size(349, 17);
             this.labelProductName.TabIndex = 19;
-            this.labelProductName.Text = "Product Name";
+            this.labelProductName.Text = "产品名称";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelVersion
@@ -97,7 +97,7 @@
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(349, 17);
             this.labelVersion.TabIndex = 0;
-            this.labelVersion.Text = "Version";
+            this.labelVersion.Text = "版本";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelCopyright
@@ -110,7 +110,7 @@
             this.labelCopyright.Size = new System.Drawing.Size(349, 17);
             this.labelCopyright.TabIndex = 21;
             this.labelCopyright.TabStop = true;
-            this.labelCopyright.Text = "Copyright";
+            this.labelCopyright.Text = "版权所有";
             this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelCopyright.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelCopyright_LinkClicked);
             // 
@@ -124,7 +124,7 @@
             this.labelCompanyName.Size = new System.Drawing.Size(349, 17);
             this.labelCompanyName.TabIndex = 22;
             this.labelCompanyName.TabStop = true;
-            this.labelCompanyName.Text = "Company Name";
+            this.labelCompanyName.Text = "公司名称";
             this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelCompanyName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelCompanyName_LinkClicked);
             // 
@@ -148,7 +148,7 @@
             this.richTextBoxDescription.ReadOnly = true;
             this.richTextBoxDescription.Size = new System.Drawing.Size(352, 239);
             this.richTextBoxDescription.TabIndex = 25;
-            this.richTextBoxDescription.Text = "Description";
+            this.richTextBoxDescription.Text = "描述";
             // 
             // AboutBox
             // 
@@ -165,7 +165,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "About EVE-O Preview";
+            this.Text = "关于 EVE-O Preview";
             this.tableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             this.ResumeLayout(false);

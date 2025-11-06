@@ -1,193 +1,305 @@
-## Overview
+## EVE-O Preview 概述
 
-The purpose of this application is to provide a simple way to keep an eye on several simultaneously running EVE Online clients and to easily switch between them. While running it shows a set of live thumbnails for each of the active EVE Online clients. These thumbnails allow fast switch to the corresponding EVE Online client either using mouse or configurable hotkeys.
+翻译 by CACX 混沌仲裁者 刺怒/StabberORVexor
 
-It's essentially a task switcher, it does not relay any keyboard/mouse events and suchlike. The application works with EVE, EVE through Steam, or any combination thereof.
+### 🎯 目的
 
-The program does NOT (and will NOT ever) do the following things:
 
-* modify EVE Online interface
-* display modified EVE Online interface
-* broadcast any keyboard or mouse events
-* anyhow interact with EVE Online except of bringing its main window to foreground or resizing/minimizing it
 
-<div style="page-break-after: always;"></div>
+本应用的目的是提供一个简单的方式，让玩家能够**同时关注多个正在运行的《EVE Online》客户端**并轻松地在它们之间进行切换。
 
-**Under any conditions you should NOT use EVE-O Preview for any actions that break EULA or ToS of EVE Online.**
+程序运行时，它会为每个活跃的《EVE Online》客户端显示一组**实时缩略图**。这些缩略图允许用户通过鼠标或可配置的快捷键快速切换到相应的《EVE Online》客户端。
 
-If you have find out that some of the features or their combination of EVE-O Preview might cause actions that can be considered as breaking EULA or ToS of EVE Online you should consider them as a bug and immediately notify the Developer ( Devilen ) via in-game mail or contact via Discord Server: 
+它本质上是一个**任务切换器**，**不**会转发任何键盘/鼠标事件或其他类似操作。该应用适用于独立的 EVE 客户端、通过 Steam 运行的 EVE 客户端，或两者的任意组合。
 
-<div style="page-break-after: always;"></div>
 
-## How To Install & Use
 
-1. Download and extract the contents of the .zip archive to a location of your choice (ie: Desktop, CCP folder, etc)
-..* **Note**: Please do not install the application into the *Program Files* or *Program files (x86)* folders. These folders in general do not allow applications to write anything there while EVE-O Preview now stores its configuration file next to its executable, thus requiring the write access to the folder it is installed into.
-2. Start up both EVE-O Preview and your EVE Clients (the order does not matter)
-3. Adjust settings as you see fit. Program options are described below
+### 🚫 程序不做的（也永远不会做的）事情：
 
-Video Guides:
 
-* [Eve online , How To : EVE-O Preview (multiboxing; legal)](https://youtu.be/2r0NMKbogXU)
 
-## Development Details
-We have migrated to a unified source code where Windows and Linux share the same code base. When doing do we also implemented the ability to build the source using Github Actions. If you would like to make changed to the code for yourself, fork this repo, make changes to the code as you see fit and actions will build the .exe files. If you would like to share your code changes with the community open a PR for approval.
+- 修改《EVE Online》界面
+- 显示修改后的《EVE Online》界面
+- 广播任何键盘或鼠标事件
+- 除了将《EVE Online》主窗口**调到前台**或**调整大小/最小化**之外，不会以任何方式与《EVE Online》进行交互。
 
-## System Requirements
+------
 
-* Windows 7, Windows 8/8.1, Windows 10, Windows 11, Linux Wine
-* Microsoft .NET Framework 4.8+
-* EVE clients Display Mode should be set to **Fixed Window** or **Window Mode**. **Fullscreen** mode is not supported.
 
-<div style="page-break-after: always;"></div>
 
-## EVE Online EULA/ToS
+## 📜 EVE Online EULA/ToS 声明
 
-This application is legal under the EULA/ToS:
 
-CCP FoxFour wrote:
-> Please keep the discussion on topic. The legitimacy of this software has already been discussed
-> and doesn't need to be again. Assuming the functionality of the software doesn't change, it is
-> allowed in its current state.
 
-CCP Grimmi wrote:
-> Overlays which contain a full, unchanged, EVE Client instance in a view only mode, no matter
-> how large or small they are scaled, like it is done by EVE-O Preview as of today, are fine
-> with us. These overlays do not allow any direct interaction with the EVE Client and you have
-> to bring the respective EVE Client to the front/put the window focus on it, in order to
-> interact with it.
+在任何情况下，您都**不应**使用 EVE-O Preview 进行任何违反《EVE Online》的 **EULA（最终用户许可协议）** 或 **ToS（服务条款）** 的操作。
 
-<div style="page-break-after: always;"></div>
+如果您发现 EVE-O Preview 的某些功能或其组合可能导致被视为违反《EVE Online》EULA 或 ToS 的行为，您应将其视为一个 **Bug**，并立即通过游戏内邮件通知开发者 **(Devilen)**，或通过 **Discord 服务器**联系。
 
-## Application Options
 
-### Application Options Available Via GUI
 
-#### **General** Tab
-| Option | Description |
-| --- | --- |
-| Minimize to System Tray | Determines whether the main window form be minimized to windows tray when it is closed |
-| Track client locations | Determines whether the client's window position should be restored when it is activated or started |
-| Hide preview of active EVE client | Determines whether the thumbnail corresponding to the active EVE client is not displayed |
-| Minimize inactive EVE clients | Allows to auto-minimize inactive EVE clients to save CPU and GPU |
-| Animation Style | Use original animation style (0) or No Animation style (1). You may find Original is cleaner with fixed window mode and No Animation is cleaner with windowed mode. Especially when using minimize inactive clients.
-| Previews always on top | Determines whether EVE client thumbnails should stay on top of all other windows |
-| Hide previews when EVE client is not active | Determines whether all thumbnails should be visible only when an EVE client is active |
-| Unique layout for each EVE client | Determines whether thumbnails positions are different depending on the EVE client being active |
+### CCP 官方声明：
 
-#### **Thumbnail** Tab
-| Option | Description |
-| --- | --- |
-| Opacity | Determines the inactive EVE thumbnails opacity (from almost invisible 20% to 100% solid) |
-| Thumbnail Width | Thumbnails width. Can be set to any value from **100** to **640** points |
-| Thumbnail Height | Thumbnails Height. Can be set to any value from **80** to **400** points |
-| Lock Thumbnail Location | Lock position of thumbnails, preventing misclicks moving your thumbnails |
-| Thumbnail Snap to Grid | Force Thumbnails to snap to defined grid when moved |
-| Snap X / Snap Y | X/Y grid Pixels |
 
-#### **Zoom** Tab
-| Option | Description |
-| --- | --- |
-| Zoom on hover | Determines whether a thumbnail should be zoomed when the mouse pointer is over it  |
-| Zoom factor | Thumbnail zoom factor. Can be set to any value from **2** to **10** |
-| Zoom anchor | Sets the starting point of the thumbnail zoom |
 
-#### **Overlay** Tab
-| Option | Description |
-| --- | --- |
-| Show overlay | Determines whether a name of the corresponding EVE client should be displayed on the thumbnail |
-| Show frames | Determines whether thumbnails should be displays with window caption and borders |
-| Highlight active client | Determines whether the thumbnail of the active EVE client should be highlighted with a bright border |
-| Color | Color used to highlight the active client's thumbnail in case the corresponding option is set |
-| Label Size | The fontsize of the overlay label (Character Name) |
-| Label Color | The color of the Font for the Overlay Label |
-| Position | The position of the overlay label in the thumbnail |
+- **CCP FoxFour 曾写道：**
 
-#### **Active Clients** Tab
-| Option | Description |
-| --- | --- |
-| Thumbnails list | List of currently active EVE client thumbnails. Checking an element in this list will hide the corresponding thumbnail. However these checks are not persisted and on the next EVE client or EVE-O Preview run the thumbnail will be visible again |
+    > “请保持讨论的主题。这款软件的合法性已经讨论过了，不需要再次讨论。假设软件功能没有改变，**它在当前状态下是被允许的**。”
 
-<div style="page-break-after: always;"></div>
+- **CCP Grimmi 曾写道：**
 
-### Mouse Gestures and Actions
+    > “包含完整、未更改的 EVE 客户端实例的叠加层，无论它们被缩放得多大或多小，只要像 EVE-O Preview 目前所做的那样，处于**仅查看模式**，我们认为是没问题的。这些叠加层不允许与 EVE 客户端进行任何直接交互，您必须将相应的 EVE 客户端带到前台/将窗口焦点置于其上，才能进行互动。”
 
-Mouse gestures are applied to the thumbnail window currently being hovered over.
+------
 
-| Action | Gesture |
-| --- | --- |
-| Activate the EVE Online client and bring it to front  | Click the thumbnail |
-| Minimize the EVE Online client | Hold Control key and click the thumbnail |
-| Switch to the last used application that is not an EVE Online client | Hold Control + Shift keys and click any thumbnail |
-| Move thumbnail to a new position | Press right mouse button and move the mouse |
-| Adjust thumbnail height | Press both left and right mouse buttons and move the mouse up or down |
-| Adjust thumbnail width | Press both left and right mouse buttons and move the mouse left or right |
 
-<div style="page-break-after: always;"></div>
 
-### Configuration File-Only Options
+## 💻 如何安装和使用
 
-Some of the application options are not exposed in the GUI. They can be adjusted directly in the configuration file.
 
-**Note:** Do any changes to the configuration file only while the EVE-O Preview itself is closed. Otherwise the changes you made might be lost.
 
-| Option | Description |
-| --- | --- |
-| **ActiveClientHighlightThickness** | <div style="font-size: small">Thickness of the border used to highlight the active client's thumbnail.<br />Allowed values are **1**...**6**.<br />The default value is **3**<br />For example: **"ActiveClientHighlightThickness": 3**</div> |
-| **CompatibilityMode** | <div style="font-size: small">Enables the alternative render mode (see below)<br />The default value is **false**<br />For example: **"CompatibilityMode": true**</div> |
-| **EnableThumbnailSnap** | <div style="font-size: small">Allows to disable thumbnails snap feature by setting its value to **false**<br />The default value is **true**<br />For example: **"EnableThumbnailSnap": true**</div> |
-| **HideThumbnailsDelay** | <div style="font-size: small">Delay before thumbnails are hidden if the **General** -> **Hide previews when EVE client is not active** option is enabled<br />The delay is measured in thumbnail refresh periods<br />The default value is **2** (corresponds to 1 second delay)<br />For example: **"HideThumbnailsDelay": 2**</div> |
-| **HideLoginClientThumbnail** | <div style="font-size: small">Hide EVE login window clients. If an Eve online client is sat at character selection screen - hide the preview window for this client<br />The default value is **false**<br />For example: **"HideLoginClientThumbnail": false**</div> |
-| **PriorityClients** | <div style="font-size: small">Allows to set a list of clients that are not auto-minimized on inactivity even if the **Minimize inactive EVE clients** option is enabled. Listed clients still can be minimized using Windows hotkeys or via _Ctrl+Click_ on the corresponding thumbnail<br />The default value is empty list **[]**<br />For example: **"PriorityClients": [ "EVE - Phrynohyas Tig-Rah", "EVE - Ondatra Patrouette" ]**</div> |
-| **ThumbnailMinimumSize** | <div style="font-size: small">Minimum thumbnail size that can be set either via GUI or by resizing a thumbnail window. Value is written in the form "width, height"<br />The default value is **"100, 80"**.<br />For example: **"ThumbnailMinimumSize": "100, 80"**</div> |
-| **ThumbnailMaximumSize** | <div style="font-size: small">Maximum thumbnail size that can be set either via GUI or by resizing a thumbnail window. Value is written in the form "width, height"<br />The default value is **"640, 400"**.<br />For example: **"ThumbnailMaximumSize": "640, 400"**</div> |
-| **ThumbnailRefreshPeriod** | <div style="font-size: small">Thumbnail refresh period in milliseconds. This option accepts values between **300** and **1000** only.<br />The default value is **500** milliseconds. For LINUX build this can go down to **10**<br />For example: **"ThumbnailRefreshPeriod": 500**</div> |
-| **ThumbnailResizeTimeoutPeriod** | <div style="font-size: small">Thumbnail Resize Timeout period in milliseconds. This option accepts values between **200** and **5000** only.<br />The default value is **500** milliseconds.<br />For example: **"ThumbnailResizeTimeoutPeriod": 500**. If you are having the preview windows resize incorrectly on startup increase this value.</div> |
-| **ExecutablesToPreview** | <div style="font-size: small">List of executables to display preview windows for. List of strings.<br />The default value is **"exefile"**.<br />For example: **"ExecutablesToPreview": ["exefile","wow","Diablo IV"]**. If you are having the preview windows resize incorrectly on startup increase this value.</div> |
-| **IconName** | <div style="font-size: small">The icon you wish to use for Eve-O-Preview.<br />The default value is **""** which would equate to **IconOriginal**.<br />If an invalid or empty value is used, **IconOriginal** will be used.<br />Valid values are : **IconOriginal**, **IconDefault**, **IconAmber**, **IconBlue**, **IconCherry**, **IconDal**, **IconDark**, **IconMint**, **IconPurple** and **IconUrns**</div> |
+1. **下载和解压：** 将 `.zip` 压缩包的内容解压到您选择的位置（例如：桌面、CCP 文件夹等）。
+    - **注意：** **请勿**将应用程序安装到 `Program Files` 或 `Program files (x86)` 文件夹。这些文件夹通常不允许应用程序在其中写入任何内容，而 EVE-O Preview 现在将其配置文件存储在可执行文件旁边，因此需要对其安装文件夹有**写入权限**。
+2. **启动：** 启动 EVE-O Preview 和您的 EVE 客户端（顺序无关紧要）。
+3. **调整设置：** 根据您的需要调整设置。程序选项将在下面描述。
 
-<div style="page-break-after: always;"></div>
 
-### Hotkey Setup
 
-It is possible to set a key combinations to immediately jump to certain EVE window. However currently EVE-O Preview doesn't provide any GUI to set the these hotkeys. It should be done via editing the configuration file directly. Don't forget to make a backup copy of the file before editing it.
+### 🎬 视频指南：
 
-**Note**: Don't forget to make a backup copy of the file before editing it.
 
-Open the file using any text editor. find the entry **ClientHotkey**. Most probably it will look like
 
+- [Eve online , How To : EVE-O Preview (multiboxing; legal)](https://youtu.be/2r0NMKbogXU)
+
+
+
+### ⚙️ 系统要求
+
+
+
+- **操作系统：** Windows 7, Windows 8/8.1, Windows 10, Windows 11, Linux Wine
+- **框架：** Microsoft .NET Framework 4.8+
+- **EVE 客户端显示模式：** 必须设置为**固定窗口（Fixed Window）或窗口模式（Window Mode）**。不支持全屏模式（Fullscreen mode）。
+
+------
+
+
+
+## 🧑‍💻 开发详情
+
+
+
+我们已迁移到**统一源代码**，其中 Windows 和 Linux 共享相同代码库。同时，我们也实现了使用 **Github Actions** 构建源代码的能力。如果您想自行更改代码，请 Fork 此仓库，根据需要修改代码，Github Actions 将构建 `.exe` 文件。如果您想与社区分享您的代码更改，请提交 **PR (Pull Request)** 等待批准。
+
+- 本下游仓库将actions更改为了zh_cn分支
+
+------
+
+
+
+## ⚙️ 应用选项
+
+
+
+### 通过图形用户界面 (GUI) 可用的应用选项
+
+
+
+#### 📁 **通用 (General) 标签页**
+
+
+
+| **选项**                      | **描述**                                                     |
+| ----------------------------- | ------------------------------------------------------------ |
+| **最小化到系统托盘**          | 确定主窗口关闭时是否最小化到 Windows 托盘。                  |
+| **追踪客户端位置**            | 确定在客户端被激活或启动时，是否应恢复其窗口位置。           |
+| **隐藏活跃 EVE 客户端预览**   | 确定是否不显示当前活跃的 EVE 客户端所对应的缩略图。          |
+| **最小化非活跃 EVE 客户端**   | 允许自动最小化非活跃的 EVE 客户端以节省 **CPU** 和 **GPU** 资源。 |
+| **动画样式**                  | 使用**原始动画样式 (0)** 或**无动画样式 (1)**。您可能会发现原始样式在固定窗口模式下更清晰，而无动画样式在窗口模式下更清晰，尤其是在使用最小化非活跃客户端时。 |
+| **预览始终置顶**              | 确定 EVE 客户端缩略图是否应保持在所有其他窗口的顶部。        |
+| **非活跃时隐藏预览**          | 确定是否仅当 **EVE 客户端处于活跃状态时**才显示所有缩略图。  |
+| **每个 EVE 客户端的独特布局** | 确定缩略图位置是否因当前活跃的 EVE 客户端而异。              |
+
+
+
+#### 🖼️ **缩略图 (Thumbnail) 标签页**
+
+
+
+| **选项**            | **描述**                                                     |
+| ------------------- | ------------------------------------------------------------ |
+| **不透明度**        | 确定非活跃 EVE 缩略图的**不透明度**（范围从几乎不可见的 20% 到 100% 完全不透明）。 |
+| **缩略图宽度**      | 缩略图宽度。可设置为 100 到 640 之间的任意值。               |
+| **缩略图高度**      | 缩略图高度。可设置为 80 到 400 之间的任意值。                |
+| **锁定缩略图位置**  | **锁定**缩略图的位置，防止误点击移动您的缩略图。             |
+| **缩略图对齐网格**  | 移动缩略图时，强制它们**对齐到定义的网格**。                 |
+| **对齐 X / 对齐 Y** | X/Y 网格像素值。                                             |
+
+
+
+#### 🔍 **缩放 (Zoom) 标签页**
+
+
+
+| **选项**       | **描述**                                                 |
+| -------------- | -------------------------------------------------------- |
+| **悬停时缩放** | 确定当鼠标指针悬停在缩略图上时，是否应**放大**该缩略图。 |
+| **缩放因子**   | 缩略图缩放倍数。可设置为 2 到 10 之间的任意值。          |
+| **缩放锚点**   | 设置缩略图缩放的**起始点**。                             |
+
+
+
+#### 🏷️ **叠加层 (Overlay) 标签页**
+
+
+
+| **选项**           | **描述**                                                     |
+| ------------------ | ------------------------------------------------------------ |
+| **显示叠加层**     | 确定是否在缩略图上显示相应 EVE 客户端的**名称**。            |
+| **显示边框**       | 确定缩略图是否应以窗口标题和边框显示。                       |
+| **高亮活跃客户端** | 确定是否应使用**亮色边框**高亮显示活跃 EVE 客户端的缩略图。  |
+| **边框颜色**       | 在设置了相应选项的情况下，用于高亮显示活跃客户端缩略图的颜色。 |
+| **标签大小**       | 叠加层标签（角色名称）的**字体大小**。                       |
+| **标签颜色**       | 叠加层标签的**字体颜色**。                                   |
+| **位置**           | 叠加层标签在缩略图中的**位置**。                             |
+
+
+
+#### 📋 **活跃客户端 (Active Clients) 标签页**
+
+
+
+| **选项**       | **描述**                                                     |
+| -------------- | ------------------------------------------------------------ |
+| **缩略图列表** | 当前活跃 EVE 客户端缩略图的列表。勾选列表中的一个元素将**隐藏**相应的缩略图。但是，这些勾选**不会持久保存**，在下次运行 EVE 客户端或 EVE-O Preview 时，缩略图将再次可见。 |
+
+------
+
+
+
+## 🖱️ 鼠标手势和操作
+
+
+
+鼠标手势应用于当前鼠标悬停的缩略图窗口。
+
+| **操作**                                             | **手势**                                       |
+| ---------------------------------------------------- | ---------------------------------------------- |
+| **激活** EVE Online 客户端并将其带到前台             | **点击**缩略图                                 |
+| **最小化** EVE Online 客户端                         | **按住 Ctrl 键并点击**缩略图                   |
+| **切换**到上一个使用的（非 EVE Online 客户端的）应用 | **按住 Ctrl + Shift 键并点击**任意缩略图       |
+| **移动**缩略图到新位置                               | **按住鼠标右键**并移动鼠标                     |
+| **调整缩略图高度**                                   | **同时按住鼠标左键和右键**并向上或向下移动鼠标 |
+| **调整缩略图宽度**                                   | **同时按住鼠标左键和右键**并向左或向右移动鼠标 |
+
+------
+
+
+
+## 📝 仅配置文件 (Configuration File-Only) 选项
+
+
+
+部分应用选项未在 GUI 中暴露，可以直接在**配置文件**中调整。
+
+> **注意：** **仅在 EVE-O Preview 本身关闭时**才对配置文件进行任何更改。否则，您所做的更改可能会丢失。
+
+| **选项**                             | **描述**                                                     |
+| ------------------------------------ | ------------------------------------------------------------ |
+| **`ActiveClientHighlightThickness`** | 用于高亮显示活跃客户端缩略图的**边框厚度**。允许的值为 1...6。默认值为 3。 |
+| **`CompatibilityMode`**              | 启用**替代渲染模式**（详见下文）。默认值为 `false`。         |
+| **`EnableThumbnailSnap`**            | 允许通过设置值为 `false` 来**禁用缩略图对齐网格功能**。默认值为 `true`。 |
+| **`HideThumbnailsDelay`**            | 如果启用了“通用 -> 非活跃时隐藏预览”选项，**缩略图被隐藏前的延迟**。延迟以缩略图刷新周期为单位测量。默认值为 2（对应 1 秒延迟）。 |
+| **`HideLoginClientThumbnail`**       | 隐藏 EVE **登录窗口**客户端。如果 EVE 客户端停留在角色选择界面，则隐藏该客户端的预览窗口。默认值为 `false`。 |
+| **`PriorityClients`**                | 允许设置一个**客户端列表**，即使启用了“最小化非活跃 EVE 客户端”选项，这些客户端在非活跃时也**不会被自动最小化**。列表中的客户端仍可以通过 Windows 快捷键或在相应缩略图上 **Ctrl+点击**来最小化。默认值是空列表 `[]`。 |
+| **`ThumbnailMinimumSize`**           | 可通过 GUI 或调整缩略图窗口设置的**最小缩略图尺寸**。值以 `"宽度, 高度"` 的形式写入。默认值为 `"100, 80"`。 |
+| **`ThumbnailMaximumSize`**           | 可通过 GUI 或调整缩略图窗口设置的**最大缩略图尺寸**。值以 `"宽度, 高度"` 的形式写入。默认值为 `"640, 400"`。 |
+| **`ThumbnailRefreshPeriod`**         | 缩略图刷新周期，单位为**毫秒**。此选项仅接受 300 到 1000 之间的值。（Linux 版本可低至 10）。默认值为 500 毫秒。 |
+| **`ThumbnailResizeTimeoutPeriod`**   | 缩略图调整大小超时周期，单位为**毫秒**。此选项仅接受 200 到 5000 之间的值。默认值为 500 毫秒。如果启动时预览窗口调整大小不正确，请增加此值。 |
+| **`ExecutablesToPreview`**           | 要显示预览窗口的**可执行文件列表**。字符串列表。默认值为 `"exefile"`。如果启动时预览窗口调整大小不正确，请增加此值。 |
+| **`IconName`**                       | 您希望用于 Eve-O-Preview 的图标。默认值是 `""`，等同于 `IconOriginal`。如果使用无效或空值，将使用 `IconOriginal`。有效值包括：`IconOriginal`, `IconDefault`, `IconAmber`, `IconBlue`, `IconCherry`, `IconDal`, `IconDark`, `IconMint`, `IconPurple`, `IconUrns`。 |
+
+
+
+### 兼容模式 (`Compatibility Mode`)
+
+
+
+此设置允许启用**替代缩略图渲染**。这种渲染不使用高级 DWM API 来创建实时预览。相反，它是一种基于**屏幕截图**的渲染，具有以下优缺点：
+
+- **优点 (+):** 即使在远程桌面环境中也应能工作。
+- **缺点 (-):** 消耗显著更多的内存。在测试环境中，使用此渲染管理 3 个缩略图时，EVE-O Preview 消耗了约 180 MB，而主要渲染在相同环境下消耗了约 50 MB。
+- **缺点 (-):** 缩略图图像以 **1 FPS** 的速率刷新。
+- **缺点 (-):** 鼠标光标可能出现短暂的冻结。
+
+------
+
+
+
+## ⌨️ 快捷键设置
+
+
+
+
+
+### 按客户端设置快捷键
+
+
+
+可以设置一个按键组合，以立即跳转到特定的 EVE 窗口。然而，目前 EVE-O Preview **不提供**任何 GUI 来设置这些快捷键。必须通过**直接编辑配置文件**来完成。
+
+> **注意：** 在编辑文件之前，请务必**备份**文件。
+
+1. 打开配置文件，找到 `ClientHotkey` 条目。它很可能看起来像：
+
+    JSON
+
+    ```
     "ClientHotkey": {},
+    ```
 
-This means that no hotkeys are defined. Edit it to be like
+    这意味着未定义任何快捷键。将其编辑为类似以下形式：
 
+    JSON
+
+    ```
     "ClientHotkey": {
       "EVE - Phrynohyas Tig-Rah": "F1",
       "EVE - Ondatra Patrouette": "F2"
     }
+    ```
 
-This simple edit will assign **F1** as a hotkey for Phrynohyas Tig-Rah and **F2** as a hotkey for Ondatra Patrouette, so pressing F1 anywhere in Windows will immediately open EVE client for Phrynohyas Tig-Rah if he is logged on.
+    这个简单的编辑将 **F1** 分配给 `Phrynohyas Tig-Rah`，将 **F2** 分配给 `Ondatra Patrouette` 作为快捷键。因此，如果在 Windows 中的任何位置按下 **F1**，如果 `Phrynohyas Tig-Rah` 已登录，将立即打开其 EVE 客户端。
 
-The following hotkey is described as `modifier+key` where `modifier` can be **Control**, **Alt**, **Shift**, or their combination. F.e. it is possible to setup the hotkey as
+2. 快捷键格式为 `修饰键 + 键`，其中修饰键可以是 `Control`, `Alt`, `Shift` 或它们的组合。例如，可以设置快捷键为：
 
+    JSON
+
+    ```
     "ClientHotkey": {
       "EVE - Phrynohyas Tig-Rah": "F1",
       "EVE - Ondatra Patrouette": "Control+Shift+F4"
     }
+    ```
 
-**Note:** Do not set hotkeys to use the key combinations already used by EVE. It won't work as "_I set hotkey for my DPS char to F1 and when I'll press F1 it will automatically open the DPS char's window and activate guns_". Key combination will be swallowed by EVE-O Preview and NOT retranslated to EVE window. So it will be only "_it will automatically open the DPS char's window_".
+> **注意：** **不要**设置使用 EVE **已在使用**的按键组合作为快捷键。它不会像“我为我的 DPS 角色设置了 F1 快捷键，当我按下 F1 时，它会自动打开 DPS 角色的窗口并激活枪械”那样工作。按键组合将被 EVE-O Preview 截获，**不会**转发到 EVE 窗口。因此，它只会实现“它会自动打开 DPS 角色的窗口”。
 
-<div style="page-break-after: always;"></div>
 
-### Cycle Clients with Hotkey Setup
 
-In a similar pattern to the per client Hotkey Setup, It is possible to set a key combinations to cycle through select Eve Windows. EVE-O Preview doesn't provide any GUI to set the these hotkeys. It should be done via editing the configuration file directly. Don't forget to make a backup copy of the file before editing it.
+### 🔄 使用快捷键循环切换客户端
 
-If you have not run EVE-O Preview before, or since this feature was added then it is recommended to quickly open and close EVE-O Preview once to trigger the config to update with some sample values. 
 
-**Note**: Don't forget to make a backup copy of the file before editing it.
 
-Open the file using any text editor. find the entries **CycleGroup1ForwardHotkeys** and **CycleGroup1BackwardHotkeys**. Most probably it will look like
+与按客户端设置快捷键类似，可以设置按键组合来**循环切换**选定的 EVE 窗口。EVE-O Preview **不提供**任何 GUI 来设置这些快捷键，必须通过**直接编辑配置文件**来完成。
 
+> **注意：** 在编辑文件之前，请务必**备份**文件。
+
+1. 如果您之前没有运行过 EVE-O Preview，或者自从添加此功能以来没有运行过，建议**快速打开并关闭一次** EVE-O Preview，以触发配置更新并生成一些示例值。
+
+2. 打开配置文件，找到 `CycleGroup1ForwardHotkeys` 和 `CycleGroup1BackwardHotkeys` 条目。它们很可能看起来像：
+
+    JSON
+
+    ```
     "CycleGroup1ForwardHotkeys": [
       "F14",
       "Control+F14"
@@ -196,169 +308,189 @@ Open the file using any text editor. find the entries **CycleGroup1ForwardHotkey
       "F13",
       "Control+F13"
     ]
+    ```
 
-**Note**: It is highly recommended to leave the Hotkey values as default and bind them with a gaming device if you can support it.
+    > **注意：** 强烈建议将快捷键值保留为默认值，并在支持的情况下将它们绑定到**游戏设备**上。
 
-Next find the entry **CycleGroup1ForwardHotkeys**. Most probably it will look like
+3. 接下来找到 `CycleGroup1ClientsOrder` 条目。它很可能看起来像：
 
+    JSON
+
+    ```
     "CycleGroup1ClientsOrder": {
       "EVE - Example DPS Toon 1": 1,
       "EVE - Example DPS Toon 2": 2,
       "EVE - Example DPS Toon 3": 3
     }
+    ```
 
-You should modify this entry with a list of each of your clients replacing "Example DPS Toon 1", etc with the name of your character. The numbers on the right are used to force the order in which they cycle.
-If a character appears in the list but is not currently logged in, then it will simply be skipped.
-If a character does not appear in the list, then they will never become active when cycling clients.
-If "EVE" is used instead of a character name - then this is taken to mean active clients with no active character (ie on character selection screen). This would allow you to setup a cycle group to go through clients at character selection screen. EVE-O Preview will cycle through all clients in this state.
-If no clients defined here but Hotkeys are defined then ALL active clients will be cycled through with those hotkeys.
+    您应该用您的**每个客户端名称**替换 `"Example DPS Toon 1"` 等，来修改此条目。右侧的数字用于**强制循环的顺序**。
 
-By now you may have noticed that there are multiple groups. The above configuration can be followed for a second group by using the values **CycleGroup2ForwardHotkeys**, **CycleGroup2BackwardHotkeys**, and **CycleGroup2ForwardHotkeys**
-This may provide useful if you want to have one HotKey to cycle through a group of DPS characters, while another HotKey cycles through support roles such as gate scouts, or a group of logi. Cyclegroups are numbered 1 through 5.
+    - 如果列表中的角色当前**未登录**，则会被**跳过**。
+    - 如果列表**没有**您的角色，那么在客户端循环时，该角色将永远不会被激活。
+    - 如果使用 **`"EVE"`** 而不是角色名称，则表示**没有活跃角色**的客户端（即停留在角色选择屏幕）。这允许您设置一个循环组来切换处于角色选择屏幕的客户端。EVE-O Preview 将循环遍历处于此状态的所有客户端。
+    - 如果未定义任何客户端，但定义了快捷键，则将**循环遍历所有活跃客户端**。
 
-Alternatively you may not want to use any of these HotKeys. Please note that deleting the values in their entirety will simply result in them being automatically re-generated.
-Should you wish to remove these HotKeys completely, Simply set the values to empty, such as the example below:
+4. 您可能已经注意到有**多个组**。上面的配置可以应用于第二个组，只需使用 `CycleGroup2ForwardHotkeys`、`CycleGroup2BackwardHotkeys` 和 `CycleGroup2ClientsOrder`。这可能在您希望一个快捷键循环 DPS 角色组，而另一个快捷键循环侦察或后勤等支持角色时很有用。循环组编号为 **1 到 5**。
 
+5. 如果您不想使用任何这些快捷键，请注意，完全删除这些值将导致它们被自动重新生成。如果您希望**彻底删除**这些快捷键，只需将值设置为空，如下例所示：
+
+    JSON
+
+    ```
     "CycleGroup1ForwardHotkeys": [],
-	  "CycleGroup1BackwardHotkeys": [],
-	  "CycleGroup1ClientsOrder": {},
-	  "CycleGroup2ForwardHotkeys": [],
-	  "CycleGroup2BackwardHotkeys": [],
-	  "CycleGroup2ClientsOrder": {},
-	  "CycleGroup3ForwardHotkeys": [],
-	  "CycleGroup3BackwardHotkeys": [],
-	  "CycleGroup3ClientsOrder": {},
-	  "CycleGroup4ForwardHotkeys": [],
-	  "CycleGroup4BackwardHotkeys": [],
-	  "CycleGroup4ClientsOrder": {},
-	  "CycleGroup5ForwardHotkeys": [],
-	  "CycleGroup5BackwardHotkeys": [],
-	  "CycleGroup5ClientsOrder": {}
+    "CycleGroup1BackwardHotkeys": [],
+    "CycleGroup1ClientsOrder": {},
+    // ... 对 CycleGroup2 到 CycleGroup5 也做同样处理
+    ```
 
-**Hints** 
-* Minimise the use of modifiers or standard keys to minimise issues with the client playing up. In the default example unusual Function keys (e.g. F14) are used which are then bound to a game pad or gaming mouse.
-* The Eve client can be somewhat less than stable, often getting confused as client focus switches. It is near certain that you will experience issues such as keys sticking or even in some cases D-Scan running each time the client swaps. So far I have found no perfect solution and opt for the most stable solution instead, of sticking to the F14+ keys.
-* For the best experience try to use the Control modifier. In the default example F14 is used to cycle to the next client, but if pressed mid locking a target (Control + Clicking) then the client will not cycle. By registering Control+F4 as an additional hotkey, the client will cycle.
-* For a list of supported keys, see: https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.keys
 
-### Per Client Border Color
-Have you ever wanted your main client to show up in a different color so that it more easily catches your eye? Or maybe your Logi to stand out?
 
-EVE-O Preview doesn't provide any GUI to set the these per client overrides as yet. Though, It can be done via editing the configuration file directly. 
-**Note** Don't forget to make a backup copy of the file before editing it.
+#### 💡 提示
 
-Open the file using any text editor. find the entry **PerClientActiveClientHighlightColor**. Most probably it will look like
 
+
+- **尽量减少**使用修饰键或标准键，以最大限度地减少客户端出现问题的可能性。在默认示例中，使用了不常见的**功能键（例如 F14）**，然后将其绑定到游戏手柄或游戏鼠标上。
+- EVE 客户端可能不太稳定，在客户端焦点切换时经常会感到混乱。您几乎肯定会遇到诸如按键粘滞，甚至在某些情况下，**每次客户端切换时 D-Scan 都会运行**等问题。到目前为止，我还没有找到完美的解决方案，并选择最稳定的解决方案，即坚持使用 F14+ 键。
+- 为了获得最佳体验，请尝试使用 **Control 修饰键**。在默认示例中，F14 用于循环到下一个客户端，但如果在锁定目标中按下（**Control + 点击**），则客户端将不会循环。通过将 **Control+F4** 注册为额外的快捷键，客户端将循环。
+- 有关支持的按键列表，请参阅：`https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.keys`
+
+------
+
+
+
+## 🎨 按客户端设置覆盖选项
+
+
+
+
+
+### 按客户端设置边框颜色
+
+
+
+您是否希望您的主客户端以不同的颜色显示，以便更容易引起您的注意？或者让您的后勤（Logi）角色更突出？
+
+EVE-O Preview 尚未提供任何 GUI 来设置这些按客户端的覆盖选项。不过，可以通过**直接编辑配置文件**来完成。
+
+> **注意：** 在编辑文件之前，请务必**备份**文件。
+
+1. 打开配置文件，找到 `PerClientActiveClientHighlightColor` 条目。它很可能看起来像：
+
+    JSON
+
+    ```
     "PerClientActiveClientHighlightColor": {
       "EVE - Example Toon 1": "Red",
       "EVE - Example Toon 2": "Green"
     }
+    ```
 
-You should modify this entry with a list of each of your clients replacing "Example Toon 1", etc with the name of your character. The names on the right represent which highligh color to use for that clients border.
+2. 您应该用您的每个客户端名称替换 `"Example Toon 1"` 等，来修改此条目。右侧的名称代表该客户端边框应使用的**高亮颜色**。
 
-If a client does not appear in this list, then it will use the global highlight color by default.
+3. 如果客户端未出现在此列表中，则默认将使用**全局高亮颜色**。
 
-**Hint** For a list of supported colors see: https://docs.microsoft.com/en-us/dotnet/api/system.drawing.color#properties
+> **提示：** 有关支持的颜色列表，请参阅：`https://docs.microsoft.com/en-us/dotnet/api/system.drawing.color#properties`
 
-### Per Client Thumbnail Size
-Would you like to have different clients with different thumbnail sizes ?
 
-EVE-O Preview doesn't provide any GUI to set the these per client overrides as yet. Though, It can be done via editing the configuration file directly. 
-**Note** Don't forget to make a backup copy of the file before editing it.
 
-Open the file using any text editor. find the entry **PerClientThumbnailSize**. Most probably it will look like
+### 按客户端设置缩略图尺寸
 
+
+
+您是否希望不同的客户端具有**不同的缩略图尺寸**？
+
+EVE-O Preview 尚未提供任何 GUI 来设置这些按客户端的覆盖选项。不过，可以通过**直接编辑配置文件**来完成。
+
+> **注意：** 在编辑文件之前，请务必**备份**文件。
+
+1. 打开配置文件，找到 `PerClientThumbnailSize` 条目。它很可能看起来像：
+
+    JSON
+
+    ```
     "PerClientThumbnailSize": {
       "EVE - Example Toon 1": "240, 180",
       "EVE - Example Toon 2": "200, 100",
       "EVE": "320, 240"
     }
+    ```
 
-You should modify this entry with a list of each of your clients replacing "Example Toon 1", etc with the name of your character. The values on the right represent the size of the thumbnail.
+2. 您应该用您的每个客户端名称替换 `"Example Toon 1"` 等，来修改此条目。右侧的值代表缩略图的**尺寸**。
 
-If a client does not appear in this list, then it will use the global thumbnail size by default.
+3. 如果客户端未出现在此列表中，则默认将使用**全局缩略图尺寸**。
 
-### Per Client Zoom Anchor
-Would you like to have different clients with different ZoomAnchor for each thumbnail ?
 
-EVE-O Preview doesn't provide any GUI to set the these per client overrides as yet. Though, It can be done via editing the configuration file directly. 
-**Note** Don't forget to make a backup copy of the file before editing it.
 
-Open the file using any text editor. find the entry **PerClientZoomAnchor**. Most probably it will look like
+### 按客户端设置缩放锚点
 
+
+
+您是否希望不同的客户端为每个缩略图设置**不同的缩放锚点**？
+
+EVE-O Preview 尚未提供任何 GUI 来设置这些按客户端的覆盖选项。不过，可以通过**直接编辑配置文件**来完成。
+
+> **注意：** 在编辑文件之前，请务必**备份**文件。
+
+1. 打开配置文件，找到 `PerClientZoomAnchor` 条目。它很可能看起来像：
+
+    JSON
+
+    ```
     "PerClientZoomAnchor": {
       "EVE - Example Toon 1": 1,
       "EVE - Example Toon 2": 2,
       "EVE": 3
     }
+    ```
 
-You should modify this entry with a list of each of your clients replacing "Example Toon 1", etc with the name of your character. The values on the right represent the Zoom Anchor for the thumbnail (which sets the starting point of the thumbnail zoom).
-Valid values are 0-8 : 0-NW, 1-North, 2-NE, 3-West, 4-Center, 5-East, 6-SW, 7-South, 8-SE.
+2. 您应该用您的每个客户端名称替换 `"Example Toon 1"` 等，来修改此条目。右侧的值代表缩略图的**缩放锚点**（设置缩略图缩放的起始点）。
 
-If a client does not appear in this list, then it will use the global Zoom Anchor by default.
-### Compatibility Mode
+3. 有效值为 **0-8**：0-西北 (NW)，1-北 (North)，2-东北 (NE)，3-西 (West)，4-中心 (Center)，5-东 (East)，6-西南 (SW)，7-南 (South)，8-东南 (SE)。
 
-This setting allows to enable an alternate thumbnail render. This render doesn't use advanced DWM API to create live previews. Instead it is a screenshot-based render with the following pros and cons:
-* `+`  Should work even in remote desktop environments
-* `-`  Consumes significantly more memory. In the testing environment EVE-O Preview did consume around 180 MB to manage 3 thumbnails using this render. At the same time the primary render did consume around 50 MB when run in the same environment.
-* `-`  Thumbnail images are refreshed at 1 FPS rate
-* `-`  Possible short mouse cursor freezes
+4. 如果客户端未出现在此列表中，则默认将使用**全局缩放锚点**。
 
-### Release build
-
-Release builds are generated using github actions when a release is created from tag. If you wish to build locally the variable EVEOTARGET controls Linux or Windows source inclusion.
-
-You can build using : 
-
-* dotnet build src\\Eve-O-Preview\\Eve-O-Preview.csproj --configuration Release -p:EVEOTARGET="Linux" -p:AssemblyVersion="8.0.2.0"
-* dotnet build src\\Eve-O-Preview\\Eve-O-Preview.csproj --configuration Release   -p:EVEOTARGET="Windows" -p:AssemblyVersion="8.0.2.0"
-
-<div style="page-break-after: always;"></div>
-
-## Credits
-
-### Maintained by
-
-* Devilen
-  
-* Dal Shooth
-
-* Izakbar
+------
 
 
-### Created by
 
-* StinkRay
-
-
-### Previous maintainers
-
-* Aura Asuna
-
-* Phrynohyas Tig-Rah
- 
-* Makari Aeron
-
-* StinkRay
+## 🏗️ 制作 (Release build)
 
 
-### With contributions from
 
-* CCP FoxFour
+发布版本是使用 **GitHub Actions** 在从 Tag 创建发布时生成的。如果您希望在本地构建，变量 **`EVEOTARGET`** 控制 Linux 或 Windows 源代码的包含。
+
+您可以使用以下命令构建：
+
+Bash
+
+```
+dotnet build src\Eve-O-Preview\Eve-O-Preview.csproj --configuration Release -p:EVEOTARGET="Linux" -p:AssemblyVersion="8.0.2.0"
+dotnet build src\Eve-O-Preview\Eve-O-Preview.csproj --configuration Release   -p:EVEOTARGET="Windows" -p:AssemblyVersion="8.0.2.0"
+```
+
+------
 
 
-### Forum thread
 
-https://forums.eveonline.com/t/eve-o-preview-v8-0-2-0/463600
+## 🏆 致谢 (Credits)
 
 
-### Original repository
 
-https://bitbucket.org/ulph/eve-o-preview-git
+| **身份**     | **姓名**                                               |
+| ------------ | ------------------------------------------------------ |
+| **维护者**   | Devilen, Dal Shooth, Izakbar                           |
+| **创建者**   | StinkRay                                               |
+| **前维护者** | Aura Asuna, Phrynohyas Tig-Rah, Makari Aeron, StinkRay |
+| **贡献者**   | CCP FoxFour                                            |
 
-<div style="page-break-after: always;"></div>
+- **论坛帖子：** `https://forums.eveonline.com/t/eve-o-preview-v8-0-2-0/463600`
+- **原始仓库：** `https://bitbucket.org/ulph/eve-o-preview-git`
 
-## CCP Copyright Notice
 
-EVE Online, the EVE logo, EVE and all associated logos and designs are the intellectual property of CCP hf. All artwork, screenshots, characters, vehicles, storylines, world facts or other recognizable features of the intellectual property relating to these trademarks are likewise the intellectual property of CCP hf. EVE Online and the EVE logo are the registered trademarks of CCP hf. All rights are reserved worldwide. All other trademarks are the property of their respective owners. CCP hf. has granted permission to Eve-O-Preview to use EVE Online and all associated logos and designs for promotional and information purposes on its website but does not endorse, and is not in any way affiliated with, Eve-O-Preview. CCP is in no way responsible for the content on or functioning of this program, nor can it be liable for any damage arising from the use of this program. 
 
+### CCP 版权声明
+
+
+
+EVE Online、EVE 徽标、EVE 以及所有相关的徽标和设计是 **CCP hf.** 的知识产权。所有与这些商标相关的艺术作品、屏幕截图、角色、载具、故事情节、世界事实或其他可识别的知识产权特征，同样是 CCP hf. 的知识产权。EVE Online 和 EVE 徽标是 CCP hf. 的注册商标。保留全球所有权利。所有其他商标是其各自所有者的财产。CCP hf. 已授权 Eve-O-Preview 在其网站上使用 EVE Online 及所有相关徽标和设计用于宣传和信息目的，但**不认可**，也**不以任何方式隶属于** Eve-O-Preview。CCP **不对**此程序的内容或功能负责，也不对因使用此程序而产生的任何损害承担责任。

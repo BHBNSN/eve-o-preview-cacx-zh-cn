@@ -1,4 +1,4 @@
-﻿namespace EveOPreview.View
+namespace EveOPreview.View
 {
 	partial class ThumbnailOverlay
 	{
@@ -75,7 +75,7 @@
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-			this.Text = "PreviewOverlay";
+			this.Text = "预览覆盖层";
 			this.TransparencyKey = System.Drawing.Color.Black;
 			((System.ComponentModel.ISupportInitialize)(OverlayAreaPictureBox)).EndInit();
 			this.ResumeLayout(false);
