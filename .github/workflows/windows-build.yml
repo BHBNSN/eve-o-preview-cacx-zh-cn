@@ -11,12 +11,12 @@ on:
     branches:
       - master
       - 'windows-build/*'
-      - zh_cn
+      - feature/zh-cn-translation
   pull_request:
     branches:
       - master
       - 'windows-build/*'
-      - zh_cn
+      - feature/zh-cn-translation
 
 jobs:
   build:
