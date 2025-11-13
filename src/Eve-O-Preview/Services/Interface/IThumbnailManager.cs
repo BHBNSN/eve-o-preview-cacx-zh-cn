@@ -10,6 +10,9 @@ namespace EveOPreview.Services
 		void UpdateThumbnailsSize();
 		void UpdateThumbnailFrames();
 
+		// Re-register cycle hotkeys at runtime after configuration changes
+		void ReloadCycleClientHotkeys();
+
 		IThumbnailView GetClientByTitle(string title);
 		IThumbnailView GetClientByPointer(System.IntPtr ptr);
 		IThumbnailView GetActiveClient();

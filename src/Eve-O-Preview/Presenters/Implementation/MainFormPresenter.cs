@@ -43,6 +43,7 @@ namespace EveOPreview.Presenters
 			this.View.FormActivated = this.Activate;
 			this.View.FormMinimized = this.Minimize;
 			this.View.FormCloseRequested = this.Close;
+			// 将 SaveApplicationSettings 方法绑定到 ApplicationSettingsChanged 事件
 			this.View.ApplicationSettingsChanged = this.SaveApplicationSettings;
 			this.View.ThumbnailsSizeChanged = this.UpdateThumbnailsSize;
 			this.View.ThumbnailStateChanged = this.UpdateThumbnailState;
@@ -271,6 +272,7 @@ namespace EveOPreview.Presenters
 			}
 		}
 
+		// 将 SaveApplicationSettings 方法绑定到 ApplicationSettingsChanged 事件
 		private async void SaveApplicationSettings()
 		{
 			if (this._isLoadingUi) return;
@@ -321,6 +323,8 @@ namespace EveOPreview.Presenters
 			this.View.RefreshZoomSettings();
 
 			await this._mediator.Send(new SaveConfiguration());
+			// Notify runtime services to re-register hotkeys without restart
+			await this._mediator.Publish(new HotkeysConfigurationUpdated());
 		}
 
 

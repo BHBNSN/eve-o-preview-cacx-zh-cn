@@ -412,43 +412,43 @@ namespace EveOPreview.View
             // 
             CycleGroupSelectorComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             CycleGroupSelectorComboBox.Items.AddRange(new object[] { "组 1", "组 2", "组 3", "组 4", "组 5" });
-            CycleGroupSelectorComboBox.Location = new Point(424, 8);
+            CycleGroupSelectorComboBox.Location = new Point(9, 3);
             CycleGroupSelectorComboBox.Name = "CycleGroupSelectorComboBox";
-            CycleGroupSelectorComboBox.Size = new Size(132, 32);
+            CycleGroupSelectorComboBox.Size = new Size(99, 32);
             CycleGroupSelectorComboBox.TabIndex = 0;
             CycleGroupSelectorComboBox.SelectedIndexChanged += CycleGroupSelectorComboBox_SelectedIndexChanged;
             // 
             // HotkeysForwardLabel
             // 
             HotkeysForwardLabel.AutoSize = true;
-            HotkeysForwardLabel.Location = new Point(16, 48);
+            HotkeysForwardLabel.Location = new Point(3, 50);
             HotkeysForwardLabel.Name = "HotkeysForwardLabel";
-            HotkeysForwardLabel.Size = new Size(87, 24);
+            HotkeysForwardLabel.Size = new Size(46, 24);
             HotkeysForwardLabel.TabIndex = 1;
-            HotkeysForwardLabel.Text = "前进 热键";
+            HotkeysForwardLabel.Text = "前进";
             // 
             // HotkeysForwardListBox
             // 
             HotkeysForwardListBox.ItemHeight = 24;
-            HotkeysForwardListBox.Location = new Point(16, 77);
+            HotkeysForwardListBox.Location = new Point(9, 77);
             HotkeysForwardListBox.Name = "HotkeysForwardListBox";
-            HotkeysForwardListBox.Size = new Size(151, 100);
+            HotkeysForwardListBox.Size = new Size(158, 100);
             HotkeysForwardListBox.TabIndex = 2;
             // 
             // HotkeysForwardAddButton
             // 
-            HotkeysForwardAddButton.Location = new Point(173, 77);
+            HotkeysForwardAddButton.Location = new Point(42, 47);
             HotkeysForwardAddButton.Name = "HotkeysForwardAddButton";
-            HotkeysForwardAddButton.Size = new Size(99, 31);
+            HotkeysForwardAddButton.Size = new Size(66, 31);
             HotkeysForwardAddButton.TabIndex = 3;
             HotkeysForwardAddButton.Text = "添加";
             HotkeysForwardAddButton.Click += HotkeysForwardAddButton_Click;
             // 
             // HotkeysForwardRemoveButton
             // 
-            HotkeysForwardRemoveButton.Location = new Point(173, 114);
+            HotkeysForwardRemoveButton.Location = new Point(101, 47);
             HotkeysForwardRemoveButton.Name = "HotkeysForwardRemoveButton";
-            HotkeysForwardRemoveButton.Size = new Size(99, 31);
+            HotkeysForwardRemoveButton.Size = new Size(66, 31);
             HotkeysForwardRemoveButton.TabIndex = 4;
             HotkeysForwardRemoveButton.Text = "移除";
             HotkeysForwardRemoveButton.Click += HotkeysForwardRemoveButton_Click;
@@ -456,57 +456,57 @@ namespace EveOPreview.View
             // HotkeysBackwardLabel
             // 
             HotkeysBackwardLabel.AutoSize = true;
-            HotkeysBackwardLabel.Location = new Point(16, 180);
+            HotkeysBackwardLabel.Location = new Point(3, 180);
             HotkeysBackwardLabel.Name = "HotkeysBackwardLabel";
-            HotkeysBackwardLabel.Size = new Size(87, 24);
+            HotkeysBackwardLabel.Size = new Size(46, 24);
             HotkeysBackwardLabel.TabIndex = 5;
-            HotkeysBackwardLabel.Text = "后退 热键";
+            HotkeysBackwardLabel.Text = "后退";
             // 
             // HotkeysBackwardListBox
             // 
             HotkeysBackwardListBox.ItemHeight = 24;
-            HotkeysBackwardListBox.Location = new Point(16, 207);
+            HotkeysBackwardListBox.Location = new Point(9, 207);
             HotkeysBackwardListBox.Name = "HotkeysBackwardListBox";
-            HotkeysBackwardListBox.Size = new Size(151, 100);
+            HotkeysBackwardListBox.Size = new Size(158, 100);
             HotkeysBackwardListBox.TabIndex = 6;
             // 
             // HotkeysBackwardAddButton
             // 
-            HotkeysBackwardAddButton.Location = new Point(173, 207);
+            HotkeysBackwardAddButton.Location = new Point(42, 177);
             HotkeysBackwardAddButton.Name = "HotkeysBackwardAddButton";
-            HotkeysBackwardAddButton.Size = new Size(99, 31);
+            HotkeysBackwardAddButton.Size = new Size(66, 31);
             HotkeysBackwardAddButton.TabIndex = 7;
             HotkeysBackwardAddButton.Text = "添加";
             HotkeysBackwardAddButton.Click += HotkeysBackwardAddButton_Click;
             // 
             // HotkeysBackwardRemoveButton
             // 
-            HotkeysBackwardRemoveButton.Location = new Point(173, 244);
+            HotkeysBackwardRemoveButton.Location = new Point(101, 177);
             HotkeysBackwardRemoveButton.Name = "HotkeysBackwardRemoveButton";
-            HotkeysBackwardRemoveButton.Size = new Size(99, 31);
+            HotkeysBackwardRemoveButton.Size = new Size(66, 31);
             HotkeysBackwardRemoveButton.TabIndex = 8;
             HotkeysBackwardRemoveButton.Text = "移除";
             HotkeysBackwardRemoveButton.Click += HotkeysBackwardRemoveButton_Click;
             // 
             // HotkeyCaptureTextBox
             // 
-            HotkeyCaptureTextBox.Location = new Point(16, 3);
+            HotkeyCaptureTextBox.Location = new Point(237, 3);
             HotkeyCaptureTextBox.Name = "HotkeyCaptureTextBox";
-            HotkeyCaptureTextBox.Size = new Size(151, 30);
+            HotkeyCaptureTextBox.Size = new Size(251, 30);
             HotkeyCaptureTextBox.TabIndex = 9;
             HotkeyCaptureTextBox.KeyDown += HotkeyCaptureTextBox_KeyDown;
             HotkeyCaptureTextBox.MouseDown += HotkeyCaptureTextBox_MouseDown;
             // 
             // HotkeysClientsList
             // 
-            HotkeysClientsList.Location = new Point(278, 72);
+            HotkeysClientsList.Location = new Point(174, 50);
             HotkeysClientsList.Name = "HotkeysClientsList";
-            HotkeysClientsList.Size = new Size(278, 166);
+            HotkeysClientsList.Size = new Size(278, 220);
             HotkeysClientsList.TabIndex = 10;
             // 
             // HotkeysClientUpButton
             // 
-            HotkeysClientUpButton.Location = new Point(278, 243);
+            HotkeysClientUpButton.Location = new Point(483, 50);
             HotkeysClientUpButton.Name = "HotkeysClientUpButton";
             HotkeysClientUpButton.Size = new Size(73, 32);
             HotkeysClientUpButton.TabIndex = 11;
@@ -515,7 +515,7 @@ namespace EveOPreview.View
             // 
             // HotkeysClientDownButton
             // 
-            HotkeysClientDownButton.Location = new Point(483, 244);
+            HotkeysClientDownButton.Location = new Point(483, 98);
             HotkeysClientDownButton.Name = "HotkeysClientDownButton";
             HotkeysClientDownButton.Size = new Size(73, 32);
             HotkeysClientDownButton.TabIndex = 12;
@@ -524,28 +524,28 @@ namespace EveOPreview.View
             // 
             // HotkeyCaptureButton
             // 
-            HotkeyCaptureButton.Location = new Point(173, 3);
+            HotkeyCaptureButton.Location = new Point(123, 3);
             HotkeyCaptureButton.Name = "HotkeyCaptureButton";
-            HotkeyCaptureButton.Size = new Size(150, 30);
+            HotkeyCaptureButton.Size = new Size(108, 30);
             HotkeyCaptureButton.TabIndex = 13;
             HotkeyCaptureButton.Text = "开始捕获";
             HotkeyCaptureButton.Click += HotkeyCaptureButton_Click;
             // 
             // HotkeyReadmeTextBox
             // 
-            HotkeyReadmeTextBox.Location = new Point(174, 281);
+            HotkeyReadmeTextBox.Location = new Point(173, 276);
             HotkeyReadmeTextBox.Multiline = true;
             HotkeyReadmeTextBox.Name = "HotkeyReadmeTextBox";
             HotkeyReadmeTextBox.ReadOnly = true;
-            HotkeyReadmeTextBox.Size = new Size(405, 104);
+            HotkeyReadmeTextBox.Size = new Size(405, 109);
             HotkeyReadmeTextBox.TabIndex = 14;
-            HotkeyReadmeTextBox.Text = "使用说明:设置完成后需重启生效!!!\r\n按下开始捕获后按下你期望的快捷键\r\n通过添加按钮添加至前移或后退快捷键组，在右侧勾选本组角色范围";
+            HotkeyReadmeTextBox.Text = "使用说明:\r\n上方热键缓存可捕获可写入，录入缓存后点添加\r\n没有角色请移动下对应角色缩略图后重启本软件";
             // 
             // HotkeySaveButton
             // 
-            HotkeySaveButton.Location = new Point(16, 326);
+            HotkeySaveButton.Location = new Point(9, 313);
             HotkeySaveButton.Name = "HotkeySaveButton";
-            HotkeySaveButton.Size = new Size(151, 35);
+            HotkeySaveButton.Size = new Size(158, 35);
             HotkeySaveButton.TabIndex = 15;
             HotkeySaveButton.Text = "保存";
             HotkeySaveButton.Click += HotkeySaveButton_Click;

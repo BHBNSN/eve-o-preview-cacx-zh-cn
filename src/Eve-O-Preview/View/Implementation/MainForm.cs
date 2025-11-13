@@ -45,6 +45,13 @@ namespace EveOPreview.View
             this.InitFormSize();
 
             this.AnimationStyleCombo.DataSource = Enum.GetValues(typeof(AnimationStyle));
+
+            // 热键捕获输入框：禁用快捷键与 IME，减少被控件/输入法拦截导致的 ProcessKey
+            if (this.HotkeyCaptureTextBox != null)
+            {
+                this.HotkeyCaptureTextBox.ShortcutsEnabled = false;
+                this.HotkeyCaptureTextBox.ImeMode = ImeMode.Disable;
+            }
         }
 
         public bool MinimizeToTray
@@ -79,7 +86,7 @@ namespace EveOPreview.View
                         this.NotifyIcon.Icon = this.Icon;
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // Log ?
                 }
@@ -534,11 +541,14 @@ namespace EveOPreview.View
         private void HotkeysForwardAddButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(this.HotkeyCaptureTextBox?.Text)) return;
-            var key = this.HotkeyCaptureTextBox.Text.Trim();
-            if (!this.HotkeysForwardListBox.Items.Contains(key))
+            var keyText = this.HotkeyCaptureTextBox.Text.Trim();
+            if (this.ValidateAndMaybeWarnHotkey(keyText))
             {
-                this.HotkeysForwardListBox.Items.Add(key);
-                this.ApplicationSettingsChanged?.Invoke();
+                if (!this.HotkeysForwardListBox.Items.Contains(keyText))
+                {
+                    this.HotkeysForwardListBox.Items.Add(keyText);
+                    this.ApplicationSettingsChanged?.Invoke();
+                }
             }
         }
 
@@ -552,11 +562,14 @@ namespace EveOPreview.View
         private void HotkeysBackwardAddButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(this.HotkeyCaptureTextBox?.Text)) return;
-            var key = this.HotkeyCaptureTextBox.Text.Trim();
-            if (!this.HotkeysBackwardListBox.Items.Contains(key))
+            var keyText = this.HotkeyCaptureTextBox.Text.Trim();
+            if (this.ValidateAndMaybeWarnHotkey(keyText))
             {
-                this.HotkeysBackwardListBox.Items.Add(key);
-                this.ApplicationSettingsChanged?.Invoke();
+                if (!this.HotkeysBackwardListBox.Items.Contains(keyText))
+                {
+                    this.HotkeysBackwardListBox.Items.Add(keyText);
+                    this.ApplicationSettingsChanged?.Invoke();
+                }
             }
         }
 
@@ -592,21 +605,25 @@ namespace EveOPreview.View
                 return;
             }
             e.SuppressKeyPress = true;
-            var parts = new List<string>();
-            if (e.Control) parts.Add("Control");
-            if (e.Alt) parts.Add("Alt");
-            if (e.Shift) parts.Add("Shift");
-            var key = e.KeyCode.ToString();
-            // ignore modifier-only presses
-            if (key == "ControlKey" || key == "Menu" || key == "ShiftKey")
+            e.Handled = true;
+
+            // 过滤仅修饰键与无法识别的 ProcessKey
+            var baseKey = e.KeyCode;
+            if (baseKey == Keys.ControlKey || baseKey == Keys.ShiftKey || baseKey == Keys.Menu || baseKey == Keys.ProcessKey)
             {
-                this.HotkeyCaptureTextBox.Text = string.Join("+", parts);
-                // still waiting for a real key
                 return;
             }
-            parts.Add(key);
-            this.HotkeyCaptureTextBox.Text = string.Join("+", parts);
-            // capture complete
+
+            // 使用微软官方 KeysConverter 输出规范字符串（不变区域），与 Keys Enum 兼容
+            var combined = e.KeyData; // 包含修饰键位
+            string keyText = new KeysConverter().ConvertToInvariantString(combined);
+            if (string.IsNullOrWhiteSpace(keyText))
+            {
+                return;
+            }
+            this.HotkeyCaptureTextBox.Text = keyText;
+
+            // 捕获完成
             this._hotkeyCaptureActive = false;
             if (this.HotkeyCaptureButton != null)
             {
@@ -657,6 +674,54 @@ namespace EveOPreview.View
         private void HotkeySaveButton_Click(object sender, EventArgs e)
         {
             this.ApplicationSettingsChanged?.Invoke();
+        }
+
+        /// <summary>
+        /// 将热键字符串转为 Keys 并尝试注册/注销以验证有效性；无效则弹窗提示。
+        /// </summary>
+        /// <param name="keyText">例如 "Control+F14"</param>
+        /// <returns>有效返回 true，否则 false</returns>
+        private bool ValidateAndMaybeWarnHotkey(string keyText)
+        {
+            Keys parsed = Keys.None;
+            try
+            {
+                var conv = new KeysConverter();
+                var obj = conv.ConvertFromInvariantString(keyText);
+                if (obj is Keys k)
+                {
+                    parsed = k;
+                }
+            }
+            catch
+            {
+                parsed = Keys.None;
+            }
+
+            // 过滤无效值与仅修饰键
+            if (parsed == Keys.None || parsed == Keys.ControlKey || parsed == Keys.ShiftKey || parsed == Keys.Menu || parsed == Keys.ProcessKey)
+            {
+                MessageBox.Show("无法识别该热键，请更换组合键（例如 Control+F14）。", "无效热键", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // 尝试注册验证占用情况
+            EveOPreview.UI.Hotkeys.HotkeyHandler tester = null;
+            try
+            {
+                tester = new EveOPreview.UI.Hotkeys.HotkeyHandler(default(IntPtr), parsed);
+                if (!tester.CanRegister())
+                {
+                    MessageBox.Show("该热键可能已被系统或其他程序占用，无法使用。请更换。", "热键冲突", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+            finally
+            {
+                tester?.Dispose();
+            }
+
+            return true;
         }
 
         private void ThumbnailSizeChanged_Handler(object sender, EventArgs e)

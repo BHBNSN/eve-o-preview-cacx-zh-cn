@@ -127,10 +127,10 @@ namespace EveOPreview.Services
 			IOrderedEnumerable<KeyValuePair<string, int>> clientOrder;
 			Dictionary<string, int> _cycleOrder = new Dictionary<string, int>(cycleOrder);
 
-			if ( _cycleOrder.Count == 0 ) 
+			if (_cycleOrder.Count == 0)
 			{
 				int order = 0;
-				foreach( var x in _thumbnailViews)
+				foreach (var x in _thumbnailViews)
 				{
 					_cycleOrder.Add(x.Value.Title, order++);
 				}
@@ -169,7 +169,7 @@ namespace EveOPreview.Services
 					var possibleClients = (isForwards ? _thumbnailViews.OrderBy(x => x.Value.Id.ToInt64()) : _thumbnailViews.OrderByDescending(x => x.Value.Id.ToInt64())).Where(x => x.Value.Title == t.Key);
 					foreach (var pc in possibleClients)
 					{
-						if ( pc.Value.Id.Equals(lastClient.Id) )
+						if (pc.Value.Id.Equals(lastClient.Id))
 						{
 							setNextClient = true;
 							continue;
@@ -197,7 +197,7 @@ namespace EveOPreview.Services
 
 				if (_thumbnailViews.Any(x => x.Value.Title == t.Key))
 				{
-					var ptr = t.Key.Equals("EVE") ? 
+					var ptr = t.Key.Equals("EVE") ?
 						(isForwards ? _thumbnailViews.OrderBy(x => x.Value.Id.ToInt64()) : _thumbnailViews.OrderByDescending(x => x.Value.Id.ToInt64())).First(x => x.Value.Title == t.Key)
 						: _thumbnailViews.First(x => x.Value.Title == t.Key);
 					SetActive(ptr);
@@ -222,6 +222,10 @@ namespace EveOPreview.Services
 
 		public void RegisterCycleClientHotkey(IEnumerable<Keys> keys, bool isForwards, Dictionary<string, int> cycleOrder)
 		{
+			if (keys == null)
+			{
+				return;
+			}
 			foreach (var hotkey in keys)
 			{
 				if (hotkey == Keys.None)
@@ -238,6 +242,48 @@ namespace EveOPreview.Services
 
 				newHandler.Register();
 				this._cycleClientHotkeyHandlers.Add(newHandler);
+			}
+		}
+
+		public void ReloadCycleClientHotkeys()
+		{
+			// Unregister and dispose previous handlers
+			foreach (var handler in this._cycleClientHotkeyHandlers)
+			{
+				try
+				{
+					handler.Unregister();
+					handler.Dispose();
+				}
+				catch { /* ignore */ }
+			}
+			this._cycleClientHotkeyHandlers.Clear();
+
+			// Re-register based on current configuration
+			RegisterCycleClientHotkey(this._configuration.CycleGroup1ForwardHotkeys?.Select(x => this._configuration.StringToKey(x)), true, this._configuration.CycleGroup1ClientsOrder);
+			RegisterCycleClientHotkey(this._configuration.CycleGroup1BackwardHotkeys?.Select(x => this._configuration.StringToKey(x)), false, this._configuration.CycleGroup1ClientsOrder);
+
+			RegisterCycleClientHotkey(this._configuration.CycleGroup2ForwardHotkeys?.Select(x => this._configuration.StringToKey(x)), true, this._configuration.CycleGroup2ClientsOrder);
+			RegisterCycleClientHotkey(this._configuration.CycleGroup2BackwardHotkeys?.Select(x => this._configuration.StringToKey(x)), false, this._configuration.CycleGroup2ClientsOrder);
+
+			RegisterCycleClientHotkey(this._configuration.CycleGroup3ForwardHotkeys?.Select(x => this._configuration.StringToKey(x)), true, this._configuration.CycleGroup3ClientsOrder);
+			RegisterCycleClientHotkey(this._configuration.CycleGroup3BackwardHotkeys?.Select(x => this._configuration.StringToKey(x)), false, this._configuration.CycleGroup3ClientsOrder);
+
+			RegisterCycleClientHotkey(this._configuration.CycleGroup4ForwardHotkeys?.Select(x => this._configuration.StringToKey(x)), true, this._configuration.CycleGroup4ClientsOrder);
+			RegisterCycleClientHotkey(this._configuration.CycleGroup4BackwardHotkeys?.Select(x => this._configuration.StringToKey(x)), false, this._configuration.CycleGroup4ClientsOrder);
+
+			RegisterCycleClientHotkey(this._configuration.CycleGroup5ForwardHotkeys?.Select(x => this._configuration.StringToKey(x)), true, this._configuration.CycleGroup5ClientsOrder);
+			RegisterCycleClientHotkey(this._configuration.CycleGroup5BackwardHotkeys?.Select(x => this._configuration.StringToKey(x)), false, this._configuration.CycleGroup5ClientsOrder);
+
+			// Also hot-reload per-client individual hotkeys
+			foreach (var kv in this._thumbnailViews)
+			{
+				var view = kv.Value;
+				try
+				{
+					view.RegisterHotkey(this._configuration.GetClientHotkey(view.Title));
+				}
+				catch { /* ignore single view failure */ }
 			}
 		}
 
@@ -472,7 +518,7 @@ namespace EveOPreview.Services
 					continue;
 				}
 
-				if (this._configuration.HideLoginClientThumbnail && (view.Title == DEFAULT_CLIENT_TITLE ))
+				if (this._configuration.HideLoginClientThumbnail && (view.Title == DEFAULT_CLIENT_TITLE))
 				{
 					if (view.IsActive)
 					{
@@ -498,7 +544,7 @@ namespace EveOPreview.Services
 				view.IsOverlayEnabled = this._configuration.ShowThumbnailOverlays;
 
 				view.SetHighlight(
-					this._configuration.EnableActiveClientHighlight && (view.Id == this._activeClient.Handle), 
+					this._configuration.EnableActiveClientHighlight && (view.Id == this._activeClient.Handle),
 					this._configuration.ActiveClientHighlightThickness);
 
 				if (!view.IsActive)
